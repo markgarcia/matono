@@ -1,0 +1,38 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Debug",
+            "type": "lldb",
+            "request": "launch",
+            "program": "${workspaceRoot}/target/debug/matono_client",
+            "args": [],
+            "cwd": "${workspaceRoot}",
+            "env": {
+                "RUST_BACKTRACE": "1",
+                //"VK_LAYER_PATH": "/usr/share/vulkan/explicit_layer.d",
+                //"VK_INSTANCE_LAYERS": "VK_LAYER_KHRONOS_validation:VK_LAYER_MESA_overlay",
+                //"VK_LAYER_MESA_OVERLAY_CONFIG": "submit,draw,pipeline_graphics",
+            },
+            "sourceLanguages": [
+                "rust"
+            ],
+            "preLaunchTask": "cargo build"
+        },
+        {
+            "name": "Attach",
+            "type": "lldb",
+            "request": "attach",
+            "program": "${workspaceRoot}/target/debug/matono_client",
+            "sourceLanguages": [
+                "rust"
+            ]
+        },
+        {
+            "name": "Launch server container",
+            "type": "docker",
+            "containerName": "matono_server",
+            "request": "launch",
+        }
+    ]
+}
